@@ -15,6 +15,8 @@ public class playerMovement : MonoBehaviour
     public float knockbackForce;
     public float knockbackCounter;
 
+    public static bool isInputEnabled = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -23,7 +25,7 @@ public class playerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (knockbackCounter <= 0)
+        if (knockbackCounter <= 0 && isInputEnabled)
         {
             HealthManager.isHurt = false;
             float xMov = Input.GetAxis("Horizontal");

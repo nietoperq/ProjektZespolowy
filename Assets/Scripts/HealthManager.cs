@@ -14,24 +14,27 @@ public class HealthManager : MonoBehaviour
     public Material hurtMaterial;
     public Material neutralMaterial;
 
+    private bool isRespawning;
+    private Vector3 respawnPoint;
+    public float respawnLenght;
+
     public static bool isHurt = false;
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-
-        thePlayer = FindObjectOfType<playerMovement>();
+        respawnPoint = thePlayer.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isHurt)
+        if (isHurt)
         {
             blob.material = hurtMaterial;
         }
-        else if(blob.material != neutralMaterial)
+        else if (blob.material != neutralMaterial)
         {
             blob.material = neutralMaterial;
             isHurt = false;
@@ -42,17 +45,52 @@ public class HealthManager : MonoBehaviour
     public void HurtPlayer(int damage, Vector3 knockbackDirection)
     {
         currentHealth -= damage;
-        thePlayer.Knockback(knockbackDirection);
+
+        if (currentHealth <= 0)
+        {
+            Respawn();
+        }
+        else
+        {
+            thePlayer.Knockback(knockbackDirection);
+
+            isHurt = true;
+        }
+    }
+
+    public void Respawn()
+    {
+        if (!isRespawning)
+            StartCoroutine("RespawnCo");
+
+    }
+
+    public IEnumerator RespawnCo()
+    {
+        isRespawning = true;
         isHurt = true;
+        playerMovement.isInputEnabled = false;
+        Fade.fadeIn();
+        
+        yield return new WaitForSeconds(respawnLenght);
+
+        isRespawning = false;
+
+        thePlayer.transform.position = respawnPoint;
+        currentHealth = maxHealth;
+        playerMovement.isInputEnabled = true;
+        isHurt = false;
+        Fade.fadeOut();
+
     }
 
     public void HealPlayer(int healAmmount)
     {
         currentHealth += healAmmount;
-        
-        if(currentHealth > maxHealth)
+
+        if (currentHealth > maxHealth)
         {
             currentHealth = maxHealth;
-        }    
+        }
     }
 }
