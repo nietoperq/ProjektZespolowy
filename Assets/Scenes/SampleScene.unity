@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 107181594}
   - component: {fileID: 107181598}
   - component: {fileID: 107181599}
+  - component: {fileID: 107181600}
   m_Layer: 0
   m_Name: catEye
   m_TagString: Untagged
@@ -587,6 +588,23 @@ MonoBehaviour:
   catEyeSighted: {fileID: 2100000, guid: 89317ae1337f5bd4baf32c1b37044450, type: 2}
   catEye: {fileID: 2100000, guid: 2ba1d846ffae81943aeec50005aa2dbb, type: 2}
   meshRenderer: {fileID: 107181595}
+--- !u!114 &107181600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 107181593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eb3bafc79b8298448235f4e517aef04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  catLight: {fileID: 1880397889}
+  catEye: {fileID: 2100000, guid: 2ba1d846ffae81943aeec50005aa2dbb, type: 2}
+  catClosed: {fileID: 2100000, guid: b36119d6fe769604a88c21b0fb7e9a47, type: 2}
+  meshRenderer: {fileID: 107181595}
+  halo: {fileID: 107181598}
 --- !u!1 &235064138
 GameObject:
   m_ObjectHideFlags: 0
@@ -9814,7 +9832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093822901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 197.8, y: 56, z: -76.68115}
+  m_LocalPosition: {x: 69.8, y: 69.3, z: -69.61}
   m_LocalScale: {x: 4.096409, y: 4.096409, z: 4.096409}
   m_Children: []
   m_Father: {fileID: 301390196}
