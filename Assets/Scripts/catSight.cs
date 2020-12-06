@@ -1,26 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class catSight : MonoBehaviour
 {
-    //public float fieldOfViewAngle = 180f;
-    public bool playerInSight;
     public SphereCollider col;
     public GameObject player;
 
-    public Material catEyeSighted;
-    public Material catEye;
-    public MeshRenderer meshRenderer;
-
-    void Start()
-    {
-        meshRenderer = GetComponent<MeshRenderer>();
-        catEyeSighted = Resources.Load<Material>("catEyeSighted");
-        playerInSight = false;
-
-    }
-
+    public VideoPlayer catDeath;
 
 
     void OnTriggerStay(Collider other)
@@ -35,16 +23,15 @@ public class catSight : MonoBehaviour
 
             if (Physics.Raycast(transform.position, direction, out hit, col.radius))
             {
-                if (hit.collider.gameObject == player)
+                if (hit.collider.gameObject == player && !this.GetComponent<CatBlink>().catBlinked )
                 {
-                   // playerInSight = true;
-                    meshRenderer.material = catEyeSighted;
-                    Debug.Log("Caught!");
+                    Debug.Log("Caught!");              
+                    catDeath.enabled = true;
+                    player.GetComponent<playerMovement>().enabled = false;
 
                 }
                 else
                 {             
-                    meshRenderer.material = catEye;
                     Debug.Log("Safe.");
                 }
             }
@@ -55,10 +42,7 @@ public class catSight : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player)
-        {
-            meshRenderer.material = catEye;
-        }
+
     }
 
 }

@@ -9,9 +9,11 @@ public class CatBlink : MonoBehaviour
     public Material catClosed;
     public MeshRenderer meshRenderer;
     public Behaviour halo;
+    public bool catBlinked;
 
     void Start()
     {
+        catBlinked = true;
         StartCoroutine("Actions");
     }
 
@@ -25,17 +27,17 @@ public class CatBlink : MonoBehaviour
             Blink();
             yield return new WaitForSeconds(0.7f);
             Blink();
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(3);
             Blink();
         }
     }
 
     public void Blink()
     {
-        if(this.GetComponent<catSight>().enabled)
+        if(!catBlinked)
         {
             this.GetComponent<catSight>().enabled = false;
-            catLight.enabled = !catLight.enabled;
+            catLight.enabled = false;
             meshRenderer.material = catClosed;
             halo.enabled = false;
         }
@@ -43,9 +45,11 @@ public class CatBlink : MonoBehaviour
         else
         {
             this.GetComponent<catSight>().enabled = true;
-            catLight.enabled = !catLight.enabled;
+            catLight.enabled = true;
             meshRenderer.material = catEye;
             halo.enabled = true;
         }
+
+        catBlinked = !catBlinked;
     }
 }
