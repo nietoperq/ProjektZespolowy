@@ -14,7 +14,7 @@ public class catSight : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
 
-        if(other.gameObject == player)
+        if (other.gameObject == player)
         {
             Vector3 direction = other.transform.position - transform.position;
 
@@ -23,19 +23,19 @@ public class catSight : MonoBehaviour
 
             if (Physics.Raycast(transform.position, direction, out hit, col.radius))
             {
-                if (hit.collider.gameObject == player && !this.GetComponent<CatBlink>().catBlinked )
+                if (hit.collider.gameObject == player && !this.GetComponent<CatBlink>().catBlinked)
                 {
-                    Debug.Log("Caught!");              
+                    Debug.Log("Caught!");
                     catDeath.enabled = true;
-                    player.GetComponent<playerMovement>().enabled = false;
+                    //player.GetComponent<playerMovement>().enabled = false;
 
                 }
                 else
-                {             
+                {
                     Debug.Log("Safe.");
                 }
             }
-            
+
         }
 
     }

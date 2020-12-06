@@ -19,7 +19,7 @@ public class CatBlink : MonoBehaviour
 
     IEnumerator Actions()
     {
-        while(true)
+        while (true)
         {
             yield return new WaitForSeconds(3);
             Blink();
@@ -34,7 +34,7 @@ public class CatBlink : MonoBehaviour
 
     public void Blink()
     {
-        if(!catBlinked)
+        if (!catBlinked)
         {
             this.GetComponent<catSight>().enabled = false;
             catLight.enabled = false;
