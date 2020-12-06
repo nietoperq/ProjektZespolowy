@@ -49,4 +49,9 @@ public class playerMovement : MonoBehaviour
 
     }
 
+    public void Flying(float flyingSpeed)
+    {
+        direction = new Vector3(rb.velocity.x, flyingSpeed, rb.velocity.z);
+    }
+
 }
