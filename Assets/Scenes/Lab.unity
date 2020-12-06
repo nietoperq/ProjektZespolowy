@@ -1368,6 +1368,7 @@ MonoBehaviour:
   col: {fileID: 107181594}
   player: {fileID: 2093822901}
   catDeath: {fileID: 96755369}
+  light: {fileID: 1880397889}
 --- !u!114 &107181600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3315,6 +3316,7 @@ Transform:
   - {fileID: 1734175341}
   - {fileID: 1535091890}
   - {fileID: 1759989594}
+  - {fileID: 709650572}
   - {fileID: 1367717238}
   m_Father: {fileID: 301390196}
   m_RootOrder: 2
@@ -3644,7 +3646,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 9.01
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3697,7 +3699,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 9.64
+      scalar: 5.98
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3751,7 +3753,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.59607846}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -3813,7 +3815,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.66
+      scalar: 0.54
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4189,7 +4191,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 9.01
+    angle: 4.71
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -4333,7 +4335,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
+      mode: 2
       spread: 0
       speed:
         serializedVersion: 2
@@ -4394,7 +4396,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 12.77
+      scalar: 24.1
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4500,7 +4502,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 0
+    enabled: 1
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -4511,22 +4513,22 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 0
-          inSlope: 0
-          outSlope: 1
-          tangentMode: 0
-          weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
-        - serializedVersion: 3
-          time: 1
           value: 1
-          inSlope: 1
+          inSlope: 0
           outSlope: 0
           tangentMode: 0
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -2
+          outSlope: -2
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -8530,7 +8532,7 @@ GameObject:
   - component: {fileID: 709650574}
   - component: {fileID: 709650573}
   m_Layer: 0
-  m_Name: shelf (3)
+  m_Name: fan
   m_TagString: fan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8544,11 +8546,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 709650571}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 191.32, y: -26.34, z: 4.046}
-  m_LocalScale: {x: 10.567656, y: 1.0100179, z: 8.091412}
+  m_LocalPosition: {x: 207.28613, y: -26.34, z: 4.045998}
+  m_LocalScale: {x: 16.028574, y: 1.0100179, z: 8.091411}
   m_Children: []
-  m_Father: {fileID: 1759989594}
-  m_RootOrder: 7
+  m_Father: {fileID: 510806693}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &709650573
 BoxCollider:
@@ -8711,8 +8713,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834070854}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 58.5, y: 63.8, z: -85.8}
-  m_LocalScale: {x: 35.807358, y: 1.3973446, z: 4.6334596}
+  m_LocalPosition: {x: 58.5, y: 99.15, z: -85.8}
+  m_LocalScale: {x: 35.80739, y: 1.3973445, z: 11.702082}
   m_Children: []
   m_Father: {fileID: 301390196}
   m_RootOrder: 4
@@ -8890,7 +8892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.040161923, y: -0, z: -0, w: 0.9991932}
-  m_LocalPosition: {x: -198.84914, y: 15.096302, z: -42.01115}
+  m_LocalPosition: {x: -199.8, y: 14.9, z: -48.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10373,7 +10375,7 @@ Transform:
   - {fileID: 64471542}
   - {fileID: 1193547941}
   m_Father: {fileID: 510806693}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1370000784
 PrefabInstance:
@@ -12307,7 +12309,6 @@ Transform:
   - {fileID: 673396670}
   - {fileID: 1391448597}
   - {fileID: 1147302520}
-  - {fileID: 709650572}
   m_Father: {fileID: 510806693}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17513,7 +17514,7 @@ GameObject:
   - component: {fileID: 1880397888}
   - component: {fileID: 1880397889}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: catLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17584,7 +17585,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -18117,7 +18118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093822901}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.4, y: 32.5, z: 0.9}
+  m_LocalPosition: {x: -195.95087, y: 8.703699, z: -5.9288497}
   m_LocalScale: {x: 4.096409, y: 4.096409, z: 4.096409}
   m_Children: []
   m_Father: {fileID: 0}
@@ -18153,7 +18154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4e9ce04b0049994c831939e8b6aa338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flyingSpeed: 1
+  flyingSpeed: 0.2
 --- !u!114 &2093822909
 MonoBehaviour:
   m_ObjectHideFlags: 0

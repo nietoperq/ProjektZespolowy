@@ -9,6 +9,13 @@ public class catSight : MonoBehaviour
     public GameObject player;
 
     public VideoPlayer catDeath;
+    public Light light;
+    private Color defLightColor;
+
+    void Start()
+    {
+        defLightColor = light.color;
+    }
 
 
     void OnTriggerStay(Collider other)
@@ -26,8 +33,10 @@ public class catSight : MonoBehaviour
                 if (hit.collider.gameObject == player && !this.GetComponent<CatBlink>().catBlinked)
                 {
                     Debug.Log("Caught!");
-                    catDeath.enabled = true;
+                    StartCoroutine("RespawnCo", catDeath);
+
                     //player.GetComponent<playerMovement>().enabled = false;
+
 
                 }
                 else
@@ -42,6 +51,24 @@ public class catSight : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
+
+    }
+
+
+    public IEnumerator RespawnCo(VideoPlayer vp)
+    {
+        light.color = Color.cyan;
+        playerMovement.isInputEnabled = false;
+        Fade.fadeIn();
+        yield return new WaitForSeconds(2);
+        catDeath.enabled = true;
+
+        Vector3 respawnPoint = FindObjectOfType<HealthManager>().GetSpawnPoint();
+        player.transform.position = respawnPoint;
+
+        playerMovement.isInputEnabled = true;
+        Fade.fadeOut();
+        light.color = defLightColor;
 
     }
 

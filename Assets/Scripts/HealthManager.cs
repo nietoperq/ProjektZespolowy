@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
+
 
 public class HealthManager : MonoBehaviour
 {
@@ -98,4 +100,10 @@ public class HealthManager : MonoBehaviour
     {
         respawnPoint = newPosition;
     }
+
+    public Vector3 GetSpawnPoint()
+    {
+        return respawnPoint;
+    }
+
 }
