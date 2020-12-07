@@ -11,16 +11,16 @@ public class CatBlink : MonoBehaviour
     public Behaviour halo;
     public bool catBlinked;
 
-    void Start()
+    void OnEnable()
     {
-        catBlinked = true;
         StartCoroutine("Actions");
     }
 
     IEnumerator Actions()
     {
-        while (true)
+        while ( true )
         {
+            Blink();
             yield return new WaitForSeconds(3);
             Blink();
             yield return new WaitForSeconds(0.7f);
@@ -28,8 +28,10 @@ public class CatBlink : MonoBehaviour
             yield return new WaitForSeconds(0.7f);
             Blink();
             yield return new WaitForSeconds(3);
-            Blink();
+
+            if (!this.GetComponent<CatBlink>().enabled) break;
         }
+
     }
 
     public void Blink()
