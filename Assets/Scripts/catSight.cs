@@ -35,9 +35,6 @@ public class catSight : MonoBehaviour
                     Debug.Log("Caught!");
                     StartCoroutine("RespawnCo", catDeath);
 
-                    //player.GetComponent<playerMovement>().enabled = false;
-
-
                 }
                 else
                 {
@@ -63,6 +60,7 @@ public class catSight : MonoBehaviour
         yield return new WaitForSeconds(2);
         catDeath.enabled = true;
 
+        yield return new WaitForSeconds(1);
         Vector3 respawnPoint = FindObjectOfType<HealthManager>().GetSpawnPoint();
         player.transform.position = respawnPoint;
 
