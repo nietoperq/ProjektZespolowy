@@ -22,11 +22,14 @@ public class HealthManager : MonoBehaviour
 
     public static bool isHurt = false;
 
+    public Checkpoint CH;
+
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         respawnPoint = thePlayer.transform.position;
+        CH = FindObjectOfType<Checkpoint>();
     }
 
     // Update is called once per frame
@@ -78,7 +81,7 @@ public class HealthManager : MonoBehaviour
 
         isRespawning = false;
 
-        thePlayer.transform.position = respawnPoint;
+        CH.ReloadScene();
         currentHealth = maxHealth;
         playerMovement.isInputEnabled = true;
         isHurt = false;

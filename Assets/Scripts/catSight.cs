@@ -38,7 +38,7 @@ public class catSight : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Safe.");
+              //      Debug.Log("Safe.");
                 }
             }
 
