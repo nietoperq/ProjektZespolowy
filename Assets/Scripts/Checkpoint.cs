@@ -12,7 +12,6 @@ public class Checkpoint : MonoBehaviour
     public Material checkpOn;
 
 
-
     void Start()
     {
 
@@ -69,7 +68,6 @@ public class Checkpoint : MonoBehaviour
                 object[] obj = GameObject.FindGameObjectsWithTag(tag);
                 foreach (object o in obj)
                 {
-
                     GameObject g = (GameObject)o;
 
                     string gName = g.name;
@@ -84,6 +82,7 @@ public class Checkpoint : MonoBehaviour
                 }
 
                 PlayerPrefs.Save();
+                PlayerPrefs.SetString("isSaved", "true");
             }
         }
     }
@@ -105,7 +104,6 @@ public class Checkpoint : MonoBehaviour
                 string gName = g.name;
 
                 Rigidbody rb = g.GetComponent<Rigidbody>();
-
 
                 Vector3 pos = new Vector3(PlayerPrefs.GetFloat(gName + "PosX"), PlayerPrefs.GetFloat(gName + "PosY"), PlayerPrefs.GetFloat(gName + "PosZ"));
                 Vector3 rot = new Vector3(PlayerPrefs.GetFloat(gName + "RotX"), PlayerPrefs.GetFloat(gName + "RotY"), PlayerPrefs.GetFloat(gName + "RotZ"));

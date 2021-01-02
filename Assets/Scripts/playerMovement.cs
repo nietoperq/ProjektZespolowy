@@ -46,7 +46,6 @@ public class playerMovement : MonoBehaviour
         knockbackCounter = knockbackTime;
         direction = knockbackDirection * knockbackForce;
         rb.velocity = direction;
-
     }
 
     public void Flying(float flyingSpeed)

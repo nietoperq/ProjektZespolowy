@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 
 public class HealthManager : MonoBehaviour
@@ -27,9 +28,9 @@ public class HealthManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        respawnPoint = thePlayer.transform.position;
         CH = FindObjectOfType<Checkpoint>();
+        if(PlayerPrefs.GetString("isSaved")=="true")
+        CH.ReloadScene();
     }
 
     // Update is called once per frame
@@ -81,7 +82,11 @@ public class HealthManager : MonoBehaviour
 
         isRespawning = false;
 
-        CH.ReloadScene();
+        if (PlayerPrefs.GetString("isSaved") == "true")
+            CH.ReloadScene();
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         currentHealth = maxHealth;
         playerMovement.isInputEnabled = true;
         isHurt = false;
