@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class catSight : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class catSight : MonoBehaviour
     public Light light;
     private Color defLightColor;
 
+    public Checkpoint CH;
+
     void Start()
     {
+        CH = FindObjectOfType<Checkpoint>();
         defLightColor = light.color;
     }
 
@@ -61,8 +65,10 @@ public class catSight : MonoBehaviour
         catDeath.enabled = true;
 
         yield return new WaitForSeconds(1);
-        Vector3 respawnPoint = FindObjectOfType<HealthManager>().GetSpawnPoint();
-        player.transform.position = respawnPoint;
+        if (PlayerPrefs.GetString("isSaved") == "true")
+            CH.ReloadScene();
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         playerMovement.isInputEnabled = true;
         Fade.fadeOut();
