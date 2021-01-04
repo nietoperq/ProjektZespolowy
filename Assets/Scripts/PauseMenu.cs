@@ -41,12 +41,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void RestartGame()
+    public void ExitToMenu()
     {
-        Debug.Log("Restarting game");
-        PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
