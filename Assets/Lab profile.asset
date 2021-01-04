@@ -18,7 +18,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 16.26
+    value: 13.37
   threshold:
     overrideState: 1
     value: 1.36
@@ -99,8 +99,8 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 0
-    value: -17
+    overrideState: 1
+    value: -11
   tint:
     overrideState: 0
     value: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
     value: {x: 0.9120853, y: 0.9433537, z: 1, w: 0}
   gain:
     overrideState: 1
-    value: {x: 1, y: 0.9244464, z: 0.7716385, w: -0.16042781}
+    value: {x: 1, y: 0.97792846, z: 0.9286273, w: -0.16042781}
   masterCurve:
     overrideState: 0
     value:
@@ -1374,7 +1374,6 @@ MonoBehaviour:
   - {fileID: -8720853321109520816}
   - {fileID: 1609137161014344178}
   - {fileID: -6102759313271491486}
-  - {fileID: 4065683187065637200}
   - {fileID: 4448954485494067282}
 --- !u!114 &1609137161014344178
 MonoBehaviour:
@@ -1420,43 +1419,6 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
---- !u!114 &4065683187065637200
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a34fa72bd4185749832024e9c8010bf, type: 3}
-  m_Name: ScreenSpaceReflections
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  preset:
-    overrideState: 1
-    value: 3
-  maximumIterationCount:
-    overrideState: 0
-    value: 16
-  resolution:
-    overrideState: 0
-    value: 0
-  thickness:
-    overrideState: 0
-    value: 8
-  maximumMarchDistance:
-    overrideState: 1
-    value: 100
-  distanceFade:
-    overrideState: 1
-    value: 0.618
-  vignette:
-    overrideState: 1
-    value: 0.493
 --- !u!114 &4448954485494067282
 MonoBehaviour:
   m_ObjectHideFlags: 3
