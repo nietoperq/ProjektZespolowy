@@ -9,6 +9,8 @@ TagManager:
   - MouseEyes
   - fan
   - MovableObject
+  - cageButton
+  - cageBar
   layers:
   - Default
   - TransparentFX
