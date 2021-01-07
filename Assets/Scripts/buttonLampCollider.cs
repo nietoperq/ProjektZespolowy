@@ -9,7 +9,6 @@ public class buttonLampCollider : MonoBehaviour
 
     public MeshRenderer klatka;
     public Material klatka1;
-    public Material klatka2;
 
     public Light lampLight;
     public GameObject[] miceEyes;
@@ -30,7 +29,6 @@ public class buttonLampCollider : MonoBehaviour
             if (buttonPressed == false)
             {
                 button.transform.position += new Vector3(0, -0.5f, 0);
-                klatka.material = klatka2;
                 lampLight.enabled = !lampLight.enabled;
                 lightbulb.material = lightbulbOff;
 
@@ -45,7 +43,6 @@ public class buttonLampCollider : MonoBehaviour
             else if (buttonPressed == true)
             {
                 button.transform.position += new Vector3(0, +0.5f, 0);
-                klatka.material = klatka1;
                 lampLight.enabled = !lampLight.enabled;
                 lightbulb.material = lightbulbOn;
 

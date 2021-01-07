@@ -16,6 +16,7 @@ public class CameraController : MonoBehaviour
     private float rotationHorizontal = 0.0f;
     private float rotationVertical = 0.0f;
 
+
     void Start()
     {
         Cursor.visible = false;
