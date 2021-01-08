@@ -14,7 +14,7 @@ public class cageButton : MonoBehaviour
     private Vector3[] newBarPos = new Vector3[3];
 
     private bool buttonPressed = false;
-    private bool cageOpened = false;
+    public bool cageOpened = false;
     private bool dontUpdate = false;
 
     float t = 0;
@@ -77,7 +77,6 @@ public class cageButton : MonoBehaviour
             t += Time.deltaTime / timeToDoIt;
 
             camera.transform.position = Vector3.Lerp(oldCameraPos, newCameraPos, t);
-            //camera.fieldOfView = Mathf.Lerp(camera.fieldOfView, 30f, t / 5);
 
             int k = 0;
             foreach (GameObject i in cageBars)
@@ -86,7 +85,7 @@ public class cageButton : MonoBehaviour
                 k++;
             }
 
-            if (cageBars[0].transform.position == newBarPos[0] && camera.transform.position == newCameraPos && !dontUpdate)
+            if ( t >= 1 && !dontUpdate)
             {
                 cageOpened = true;
                 StartCoroutine("Cutscene", ratEscape);

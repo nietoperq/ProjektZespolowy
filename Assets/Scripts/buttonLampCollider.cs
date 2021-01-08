@@ -32,9 +32,13 @@ public class buttonLampCollider : MonoBehaviour
                 lampLight.enabled = !lampLight.enabled;
                 lightbulb.material = lightbulbOff;
 
-                foreach(GameObject i in miceEyes)
+
+                if( !this.GetComponent<cageButton>().cageOpened )
                 {
-                    i.GetComponent<Light>().enabled = true;
+                    foreach (GameObject i in miceEyes)
+                    {
+                        i.GetComponent<Light>().enabled = true;
+                    }
                 }
 
                 buttonPressed = true;
