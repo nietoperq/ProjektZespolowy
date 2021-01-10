@@ -7,13 +7,15 @@ public class Checkpoint : MonoBehaviour
     public HealthManager theHM;
 
     public Renderer theRend;
+    public Material checkpointOn;
 
-    private GameObject particle;
     public ParticleSystem checkpointEffect;
+    public Light lightEffect;
 
     void Start()
     {
         checkpointEffect.Stop();
+        lightEffect.enabled = false;
     }
 
     void Update()
@@ -79,7 +81,8 @@ public class Checkpoint : MonoBehaviour
         string[] tagsForCheckpoint =
           {
                  "Player",
-                 "MovableObject"
+                 "MovableObject",
+                 "checkpointLight"
            };
 
         foreach (string tag in tagsForCheckpoint)
@@ -102,6 +105,7 @@ public class Checkpoint : MonoBehaviour
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = Vector3.zero;
                 }
+               
             }
         }
     }
@@ -109,6 +113,9 @@ public class Checkpoint : MonoBehaviour
 
     public IEnumerator EffectCo()
     {
+        theRend.material = checkpointOn;
+        lightEffect.enabled = true;
+        PlayerPrefs.SetInt(lightEffect.name, 1);
         checkpointEffect.Play();
         yield return new WaitForSeconds(2);
         checkpointEffect.Stop();
