@@ -6,9 +6,6 @@ public class Checkpoint : MonoBehaviour
 {
     public HealthManager theHM;
 
-    public Renderer theRend;
-    public Material checkpointOn;
-
     public ParticleSystem checkpointEffect;
     public Light lightEffect;
 
@@ -113,7 +110,6 @@ public class Checkpoint : MonoBehaviour
 
     public IEnumerator EffectCo()
     {
-        theRend.material = checkpointOn;
         lightEffect.enabled = true;
         PlayerPrefs.SetInt(lightEffect.name, 1);
         checkpointEffect.Play();
