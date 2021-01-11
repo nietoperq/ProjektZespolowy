@@ -12,7 +12,8 @@ public class Checkpoint : MonoBehaviour
     void Start()
     {
         checkpointEffect.Stop();
-        lightEffect.enabled = false;
+        if (PlayerPrefs.GetInt(this.transform.parent.name + "saved") != 1)
+            lightEffect.enabled = false;
     }
 
     void Update()
@@ -23,10 +24,12 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
         if (other.tag.Equals("Player"))
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
+                PlayerPrefs.SetInt(this.transform.parent.name + "saved", 1);
                 Debug.Log("Saving");
                 // theHM.SetSpawnPoint(other.transform.position);
 
@@ -66,8 +69,9 @@ public class Checkpoint : MonoBehaviour
 
                     }
 
-                    PlayerPrefs.Save();
                     PlayerPrefs.SetString("isSaved", "true");
+                    PlayerPrefs.Save();
+
                 }
             }
         }
@@ -79,7 +83,6 @@ public class Checkpoint : MonoBehaviour
           {
                  "Player",
                  "MovableObject",
-                 "checkpointLight"
            };
 
         foreach (string tag in tagsForCheckpoint)
@@ -102,9 +105,23 @@ public class Checkpoint : MonoBehaviour
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = Vector3.zero;
                 }
-               
+
             }
         }
+
+        object[] checkpoints = GameObject.FindGameObjectsWithTag("checkpoint");
+        foreach (object c in checkpoints)
+        {
+            GameObject g = (GameObject)c;
+            string gName = g.name;
+            if (PlayerPrefs.GetInt(gName + "saved") == 1)
+            {
+                Light l = g.GetComponentInChildren<Light>();
+                Debug.Log("reload" + gName);
+                l.enabled = true;
+            }
+        }
+
     }
 
 

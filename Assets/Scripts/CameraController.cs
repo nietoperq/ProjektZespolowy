@@ -16,9 +16,12 @@ public class CameraController : MonoBehaviour
     private float rotationHorizontal = 0.0f;
     private float rotationVertical = 0.0f;
 
+    private float cameraZ;
+
 
     void Start()
     {
+        cameraZ = transform.position.z;
         Cursor.visible = false;
         offset = target.position - transform.position;
     }
@@ -41,7 +44,9 @@ public class CameraController : MonoBehaviour
         transform.eulerAngles = new Vector3(-rotationVertical, rotationHorizontal, 0.0f);
 
         offset.x -= moveSpeedHorizontal * Input.GetAxis("Mouse X") ;
-        transform.position = target.position - offset;
+        Vector3 cameraPos = target.position - offset;
+        cameraPos.z = cameraZ;
+        transform.position = cameraPos;
 
     }
 }

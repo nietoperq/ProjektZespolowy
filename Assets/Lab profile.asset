@@ -72,13 +72,13 @@ MonoBehaviour:
     defaultState: 1
   tonemapper:
     overrideState: 0
-    value: 1
+    value: 3
   toneCurveToeStrength:
     overrideState: 0
-    value: 0
+    value: 0.386
   toneCurveToeLength:
     overrideState: 0
-    value: 0.5
+    value: 0
   toneCurveShoulderStrength:
     overrideState: 0
     value: 0
@@ -109,28 +109,28 @@ MonoBehaviour:
     value: {r: 1.218583, g: 1.1705233, b: 1.8113208, a: 1}
   hueShift:
     overrideState: 0
-    value: 0
+    value: 180
   saturation:
     overrideState: 0
-    value: -43
+    value: 20
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 0
-    value: -0.72
+    value: 0.65
   contrast:
-    overrideState: 1
+    overrideState: 0
     value: 10
   mixerRedOutRedIn:
     overrideState: 0
-    value: 127
+    value: 53
   mixerRedOutGreenIn:
     overrideState: 0
-    value: -115
+    value: 2
   mixerRedOutBlueIn:
     overrideState: 0
-    value: -9
+    value: 15
   mixerGreenOutRedIn:
     overrideState: 0
     value: 0
@@ -151,13 +151,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 1
-    value: {x: 0.9212601, y: 0.95336294, z: 1, w: 0.021390375}
+    value: {x: 0.9212601, y: 0.95336294, z: 1, w: -0.025}
   gamma:
     overrideState: 1
-    value: {x: 0.9120853, y: 0.9433537, z: 1, w: 0}
+    value: {x: 0.9120853, y: 0.9433537, z: 1, w: -0.124999985}
   gain:
     overrideState: 1
-    value: {x: 1, y: 0.97792846, z: 0.9286273, w: -0.16042781}
+    value: {x: 1, y: 0.97792846, z: 0.9286273, w: -0.07499999}
   masterCurve:
     overrideState: 0
     value:
@@ -1374,7 +1374,6 @@ MonoBehaviour:
   - {fileID: -8720853321109520816}
   - {fileID: 1609137161014344178}
   - {fileID: -6102759313271491486}
-  - {fileID: 4448954485494067282}
 --- !u!114 &1609137161014344178
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1419,25 +1418,3 @@ MonoBehaviour:
   opacity:
     overrideState: 0
     value: 1
---- !u!114 &4448954485494067282
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  enabled:
-    overrideState: 1
-    value: 1
-  shutterAngle:
-    overrideState: 0
-    value: 270
-  sampleCount:
-    overrideState: 0
-    value: 10

@@ -12,6 +12,7 @@ TagManager:
   - cageButton
   - cageBar
   - HelpSphereColliders
+  - checkpoint
   layers:
   - Default
   - TransparentFX
