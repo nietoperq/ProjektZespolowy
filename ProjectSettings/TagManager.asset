@@ -13,6 +13,7 @@ TagManager:
   - cageBar
   - HelpSphereColliders
   - checkpoint
+  - steam
   layers:
   - Default
   - TransparentFX

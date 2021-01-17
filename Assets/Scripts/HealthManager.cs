@@ -23,7 +23,7 @@ public class HealthManager : MonoBehaviour
 
     public static bool isHurt = false;
 
-    public Checkpoint CH;
+    private Checkpoint CH;
 
     // Start is called before the first frame update
     void Start()
