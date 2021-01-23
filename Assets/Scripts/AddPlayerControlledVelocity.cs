@@ -16,10 +16,17 @@ public class AddPlayerControlledVelocity : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(Input.GetKey(keyPositive))
+        if (Input.GetKey(keyPositive))
+        {
             GetComponent<Rigidbody>().velocity += v3Force;
 
+        }
+
+
         if (Input.GetKey(keyNegative))
+        {
             GetComponent<Rigidbody>().velocity -= v3Force;
+        }
+
     }
 }

@@ -1,6 +1,5 @@
-﻿
-using System.Diagnostics;
-using System.Threading;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class playerMovement : MonoBehaviour
@@ -17,14 +16,21 @@ public class playerMovement : MonoBehaviour
 
     public static bool isInputEnabled = true;
 
+    Vector3 rot;
+
+    private Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
 
     }
 
     void FixedUpdate()
     {
+       
+
         if (knockbackCounter <= 0 && isInputEnabled)
         {
             HealthManager.isHurt = false;
@@ -39,6 +45,43 @@ public class playerMovement : MonoBehaviour
         {
             knockbackCounter -= Time.deltaTime;
         }
+
+
+        rot = new Vector3(0, transform.eulerAngles.x, 0);
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            rot.y = -90;
+            transform.eulerAngles = rot;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            rot.y = 180;
+            transform.eulerAngles = rot;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            rot.y = 90;
+            transform.eulerAngles = rot;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            rot.y = 0;
+            transform.eulerAngles = rot;
+        }
+      
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("walking", true);
+        }
+        else
+        {
+            anim.SetBool("walking", false);
+        }
     }
 
     public void Knockback(Vector3 knockbackDirection)
@@ -52,5 +95,6 @@ public class playerMovement : MonoBehaviour
     {
         direction = new Vector3(rb.velocity.x, flyingSpeed, rb.velocity.z);
     }
+
 
 }
