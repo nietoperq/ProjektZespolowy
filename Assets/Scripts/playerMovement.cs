@@ -7,8 +7,7 @@ public class playerMovement : MonoBehaviour
     public float speed;
 
     private Rigidbody rb;
-    public GameObject blob;
-    public GameObject sphere;
+
 
     private Vector3 direction;
 
@@ -17,7 +16,6 @@ public class playerMovement : MonoBehaviour
     public float knockbackCounter;
 
     public static bool isInputEnabled = true;
-
     private bool isSphere = false;
 
     Vector3 rot;
@@ -75,31 +73,7 @@ public class playerMovement : MonoBehaviour
                 transform.eulerAngles = rot;
             }
         }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            transform.localScale -= new Vector3(1, 1, 1);
-        }
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            transform.localScale += new Vector3(1, 1, 1);
-        }
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            isSphere = true;
-            speed += 0.7f;
-            foreach (Collider c in blob.GetComponents<Collider>())
-            {
-                c.enabled = false;
-            }
-
-            blob.active = false;
-            sphere.active = true;
-            foreach (Collider c in sphere.GetComponents<Collider>())
-            {
-                c.enabled = true;
-            }
-            GetComponent<Rigidbody>().freezeRotation = false;
-        }
+       
 
     }
 
@@ -125,6 +99,11 @@ public class playerMovement : MonoBehaviour
     public void Flying(float flyingSpeed)
     {
         direction = new Vector3(rb.velocity.x, flyingSpeed, rb.velocity.z);
+    }
+
+    public void setIsSphere(bool b)
+    {
+        isSphere = b;
     }
 
 
