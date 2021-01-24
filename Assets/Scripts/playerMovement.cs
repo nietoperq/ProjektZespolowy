@@ -7,6 +7,8 @@ public class playerMovement : MonoBehaviour
     public float speed;
 
     private Rigidbody rb;
+    public GameObject blob;
+    public GameObject sphere;
 
     private Vector3 direction;
 
@@ -15,6 +17,8 @@ public class playerMovement : MonoBehaviour
     public float knockbackCounter;
 
     public static bool isInputEnabled = true;
+
+    private bool isSphere = false;
 
     Vector3 rot;
 
@@ -29,7 +33,7 @@ public class playerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-       
+
 
         if (knockbackCounter <= 0 && isInputEnabled)
         {
@@ -48,28 +52,55 @@ public class playerMovement : MonoBehaviour
 
 
         rot = new Vector3(0, transform.eulerAngles.x, 0);
+        if (!isSphere)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                rot.y = -90;
+                transform.eulerAngles = rot;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                rot.y = 180;
+                transform.eulerAngles = rot;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                rot.y = 90;
+                transform.eulerAngles = rot;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                rot.y = 0;
+                transform.eulerAngles = rot;
+            }
+        }
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            transform.localScale -= new Vector3(1, 1, 1);
+        }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            transform.localScale += new Vector3(1, 1, 1);
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isSphere = true;
+            speed += 0.7f;
+            foreach (Collider c in blob.GetComponents<Collider>())
+            {
+                c.enabled = false;
+            }
 
-        if (Input.GetKey(KeyCode.W))
-        {
-            rot.y = -90;
-            transform.eulerAngles = rot;
+            blob.active = false;
+            sphere.active = true;
+            foreach (Collider c in sphere.GetComponents<Collider>())
+            {
+                c.enabled = true;
+            }
+            GetComponent<Rigidbody>().freezeRotation = false;
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            rot.y = 180;
-            transform.eulerAngles = rot;
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            rot.y = 90;
-            transform.eulerAngles = rot;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            rot.y = 0;
-            transform.eulerAngles = rot;
-        }
-      
+
     }
 
     private void Update()
