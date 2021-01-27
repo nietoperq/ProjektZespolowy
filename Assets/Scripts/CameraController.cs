@@ -18,6 +18,8 @@ public class CameraController : MonoBehaviour
 
     private float cameraZ;
 
+    public bool follow = false;
+
 
     void Start()
     {
@@ -34,18 +36,22 @@ public class CameraController : MonoBehaviour
         if (rotationVertical > 5f) rotationVertical = 5f;
         else if (rotationVertical < -15f) rotationVertical = -15f;
 
-        if(rotationHorizontal > 2f) rotationHorizontal = 2f;
+        if (rotationHorizontal > 2f) rotationHorizontal = 2f;
         else if (rotationHorizontal < -2f) rotationHorizontal = -2f;
 
         if (offset.x > 12f) offset.x = 12f;
         else if (offset.x < -12f) offset.x = -12f;
-
         transform.eulerAngles = new Vector3(-rotationVertical, rotationHorizontal, 0.0f);
+        offset.x -= moveSpeedHorizontal * Input.GetAxis("Mouse X");
 
-        offset.x -= moveSpeedHorizontal * Input.GetAxis("Mouse X") ;
         Vector3 cameraPos = target.position - offset;
-        cameraPos.z = cameraZ;
+        if (!follow)
+        {
+            cameraPos.z = cameraZ;
+        }
         transform.position = cameraPos;
+
+
 
     }
 }

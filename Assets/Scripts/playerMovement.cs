@@ -39,7 +39,7 @@ public class playerMovement : MonoBehaviour
             float xMov = Input.GetAxis("Horizontal");
             float zMov = Input.GetAxis("Vertical");
 
-            direction = new Vector3(xMov * speed, rb.velocity.y, zMov * speed);
+            direction = new Vector3(xMov * speed, rb.velocity.y, zMov * 2f * speed);
 
             rb.velocity = direction;
         }
