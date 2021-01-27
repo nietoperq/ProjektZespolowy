@@ -62,9 +62,10 @@ public class cageButton : MonoBehaviour
                 i.GetComponent<Light>().enabled = false;
             }
 
-            buttonPressed = true;
 
             playerMovement.isInputEnabled = false;
+            StartCoroutine("WaitCo");
+
             camera.GetComponent<CameraController>().enabled = false;
 
         }
@@ -90,6 +91,7 @@ public class cageButton : MonoBehaviour
                 cageOpened = true;
                 StartCoroutine("Cutscene", ratEscape);
                 dontUpdate = true;
+                playerMovement.isInputEnabled = true;
 
             }
         }
@@ -106,6 +108,14 @@ public class cageButton : MonoBehaviour
         camera.GetComponent<CameraController>().enabled = true;
 
         mouse.SetActive(true);
+
+    }
+
+    public IEnumerator WaitCo()
+    {
+        yield return new WaitForSeconds(1f);
+        buttonPressed = true;
+
 
     }
 

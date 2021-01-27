@@ -87,6 +87,15 @@ public class playerMovement : MonoBehaviour
         {
             anim.SetBool("walking", false);
         }
+
+        if (rb.velocity.y <= -1)
+        {
+            anim.SetBool("falling", true);
+        }
+        else
+        {
+            anim.SetBool("falling", false);
+        }
     }
 
     public void Knockback(Vector3 knockbackDirection)
@@ -105,6 +114,5 @@ public class playerMovement : MonoBehaviour
     {
         isSphere = b;
     }
-
 
 }
