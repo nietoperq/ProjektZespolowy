@@ -51,7 +51,7 @@ public class cageButton : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "cageButton")
+        if (collider.tag == "cageButton" && buttonPressed == false)
         {
 
             button.transform.position += new Vector3(0, -0.5f, 0);
