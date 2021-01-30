@@ -31,7 +31,7 @@ public class playerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         if (isMouse)
-            zMovementMultiplier = 3f;
+            zMovementMultiplier = 2.5f;
 
     }
 
