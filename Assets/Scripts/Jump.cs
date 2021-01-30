@@ -5,14 +5,15 @@ using UnityEngine;
 public class Jump : MonoBehaviour
 {
     public Vector3 jump;
-    public float jumpForce = 10.0f;
+    public float jumpForce = 5.0f;
 
     public bool isGrounded;
     Rigidbody rb;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        jump = new Vector3(0.0f, 8.5f, 0.0f);
+        jump = new Vector3(0.0f, 5f, 0.0f);
+
     }
 
     void OnCollisionStay()
@@ -29,4 +30,5 @@ public class Jump : MonoBehaviour
             isGrounded = false;
         }
     }
+
 }

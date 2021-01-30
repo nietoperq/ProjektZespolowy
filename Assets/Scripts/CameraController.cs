@@ -39,8 +39,8 @@ public class CameraController : MonoBehaviour
         if (rotationHorizontal > 2f) rotationHorizontal = 2f;
         else if (rotationHorizontal < -2f) rotationHorizontal = -2f;
 
-        if (offset.x > 12f) offset.x = 12f;
-        else if (offset.x < -12f) offset.x = -12f;
+        if (offset.x > 3f) offset.x = 3f;
+        else if (offset.x < -3f) offset.x = -3f;
         transform.eulerAngles = new Vector3(-rotationVertical, rotationHorizontal, 0.0f);
         offset.x -= moveSpeedHorizontal * Input.GetAxis("Mouse X");
 

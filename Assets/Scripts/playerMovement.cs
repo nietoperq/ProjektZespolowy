@@ -18,6 +18,10 @@ public class playerMovement : MonoBehaviour
     public static bool isInputEnabled = true;
     private bool isSphere = false;
 
+    public bool isMouse;
+
+    private float zMovementMultiplier = 1f;
+
     Vector3 rot;
 
     private Animator anim;
@@ -26,6 +30,8 @@ public class playerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+        if (isMouse)
+            zMovementMultiplier = 3f;
 
     }
 
@@ -39,7 +45,7 @@ public class playerMovement : MonoBehaviour
             float xMov = Input.GetAxis("Horizontal");
             float zMov = Input.GetAxis("Vertical");
 
-            direction = new Vector3(xMov * speed, rb.velocity.y, zMov * 2f * speed);
+            direction = new Vector3(xMov * speed, rb.velocity.y, zMov * zMovementMultiplier * speed);
 
             rb.velocity = direction;
         }
@@ -50,11 +56,11 @@ public class playerMovement : MonoBehaviour
 
 
         rot = new Vector3(0, transform.eulerAngles.x, 0);
-        if (!isSphere)
+        if (!isSphere && !isMouse)
         {
             if (Input.GetKey(KeyCode.W))
             {
-                rot.y = -90;
+                rot.y = 90;
                 transform.eulerAngles = rot;
             }
             if (Input.GetKey(KeyCode.A))
@@ -64,7 +70,7 @@ public class playerMovement : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.S))
             {
-                rot.y = 90;
+                rot.y = -90;
                 transform.eulerAngles = rot;
             }
             if (Input.GetKey(KeyCode.D))
@@ -73,8 +79,30 @@ public class playerMovement : MonoBehaviour
                 transform.eulerAngles = rot;
             }
         }
+        if(isMouse)
+        {
+            if (Input.GetKey(KeyCode.W))
+            {
+                rot.y = 0;
+                transform.eulerAngles = rot;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                rot.y = -90;
+                transform.eulerAngles = rot;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                rot.y = 180;
+                transform.eulerAngles = rot;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                rot.y = 90;
+                transform.eulerAngles = rot;
+            }
+        }
        
-
     }
 
     private void Update()
