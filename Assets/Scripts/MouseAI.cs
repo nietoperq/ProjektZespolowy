@@ -243,6 +243,7 @@ public class MouseAI : MonoBehaviour
                     cat.SetActive(true);
                     yield return new WaitForSeconds(22f);
                     //mozna by tu wtawić black screen żeby nie pokazywało sceny
+                    PlayerPrefs.DeleteAll();
                     SceneManager.LoadScene(2);
 
 
