@@ -15,6 +15,7 @@ TagManager:
   - checkpoint
   - steam
   - rurka
+  - image
   layers:
   - Default
   - TransparentFX

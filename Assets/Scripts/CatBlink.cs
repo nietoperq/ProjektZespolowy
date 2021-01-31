@@ -8,8 +8,9 @@ public class CatBlink : MonoBehaviour
     public Material catEye;
     public Material catClosed;
     public MeshRenderer meshRenderer;
-    public Behaviour halo;
+    public Light halo;
     public bool catBlinked;
+    public GameObject catEyeVis;
 
     void OnEnable()
     {
@@ -40,7 +41,7 @@ public class CatBlink : MonoBehaviour
         {
             this.GetComponent<catSight>().enabled = false;
             catLight.enabled = false;
-            meshRenderer.material = catClosed;
+            catEyeVis.GetComponent<MeshRenderer>().material = catClosed;
             halo.enabled = false;
         }
 
@@ -48,7 +49,7 @@ public class CatBlink : MonoBehaviour
         {
             this.GetComponent<catSight>().enabled = true;
             catLight.enabled = true;
-            meshRenderer.material = catEye;
+            catEyeVis.GetComponent <MeshRenderer>().material = catEye;
             halo.enabled = true;
         }
 

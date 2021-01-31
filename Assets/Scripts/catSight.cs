@@ -50,10 +50,6 @@ public class catSight : MonoBehaviour
 
     }
 
-    void OnTriggerExit(Collider other)
-    {
-
-    }
 
 
     public IEnumerator RespawnCo(VideoPlayer vp)
@@ -61,17 +57,17 @@ public class catSight : MonoBehaviour
         light.color = Color.cyan;
         playerMovement.isInputEnabled = false;
         Fade.fadeIn();
-        yield return new WaitForSeconds(2);
-        catDeath.enabled = true;
-
         yield return new WaitForSeconds(1);
+        catDeath.enabled = true;
+        Fade.fadeOut();
+        yield return new WaitForSeconds(6);
+
         if (PlayerPrefs.GetString("isSaved") == "true")
             CH.ReloadScene();
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         playerMovement.isInputEnabled = true;
-        Fade.fadeOut();
         light.color = defLightColor;
 
     }
