@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public class catSight : MonoBehaviour
 {
@@ -13,10 +14,13 @@ public class catSight : MonoBehaviour
     public Light light;
     private Color defLightColor;
 
+    public GameObject postp;
+
     public Checkpoint CH;
 
     void Start()
     {
+        postp = GameObject.Find("PostProcessingManager");
         CH = FindObjectOfType<Checkpoint>();
         defLightColor = light.color;
     }
@@ -45,23 +49,20 @@ public class catSight : MonoBehaviour
               //      Debug.Log("Safe.");
                 }
             }
-
         }
-
     }
-
-
 
     public IEnumerator RespawnCo(VideoPlayer vp)
     {
         light.color = Color.cyan;
         playerMovement.isInputEnabled = false;
         Fade.fadeIn();
-        yield return new WaitForSeconds(1);
-        catDeath.enabled = true;
+        yield return new WaitForSeconds(2);
         Fade.fadeOut();
-        yield return new WaitForSeconds(6);
-
+        postp.SetActive(false);
+        catDeath.enabled = true;
+        yield return new WaitForSeconds((float)catDeath.length/catDeath.playbackSpeed+1);
+        postp.SetActive(false);
         if (PlayerPrefs.GetString("isSaved") == "true")
             CH.ReloadScene();
         else

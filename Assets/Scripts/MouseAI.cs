@@ -29,6 +29,8 @@ public class MouseAI : MonoBehaviour
     private Transform mouseModel;
     private Animator anim;
 
+    public GameObject postp;
+
     void Start()
     {
         positions[0] = new Vector3(-54f, 0, 0);
@@ -43,6 +45,7 @@ public class MouseAI : MonoBehaviour
         bookRb = ksiazka.GetComponent<Rigidbody>();
         mouseModel = transform.Find("mouse_idle");
         anim = mouseModel.GetComponent<Animator>();
+        postp = GameObject.Find("PostProcessingManager");
     }
 
     void OnTriggerEnter(Collider other)
@@ -281,6 +284,7 @@ public class MouseAI : MonoBehaviour
 
                     yield return new WaitForSeconds(2f);
                     newPos = player.transform.position;
+                    postp.SetActive(false);
                     ratIsDead.enabled = true;
                     cat.SetActive(true);
                     yield return new WaitForSeconds(22f);
@@ -288,7 +292,7 @@ public class MouseAI : MonoBehaviour
                     PlayerPrefs.DeleteAll();
                     SceneManager.LoadScene(2);
 
-
+                    postp.SetActive(true);
                     ratIsDead.enabled = false;
                     player.transform.position = newPos;
 

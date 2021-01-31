@@ -79,6 +79,8 @@ public class Checkpoint : MonoBehaviour
 
     public void ReloadScene()
     {
+        Cursor.visible = false;
+
         string[] tagsForCheckpoint =
           {
                  "Player",

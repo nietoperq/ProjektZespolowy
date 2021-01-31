@@ -2120,6 +2120,7 @@ MonoBehaviour:
   player: {fileID: 1789668696}
   catDeath: {fileID: 96755369}
   light: {fileID: 1880397889}
+  postp: {fileID: 0}
   CH: {fileID: 0}
 --- !u!114 &107181600
 MonoBehaviour:
@@ -15129,7 +15130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.040161923, y: -0, z: -0, w: 0.9991932}
-  m_LocalPosition: {x: 49.3, y: 35, z: -53.6}
+  m_LocalPosition: {x: -181.5, y: 3.4, z: -51.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15358,7 +15359,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &994721166
 Transform:
   m_ObjectHideFlags: 0
@@ -15451,6 +15452,7 @@ MonoBehaviour:
   ratIsDead: {fileID: 749027078}
   player: {fileID: 2062264884}
   cat: {fileID: 642308647}
+  postp: {fileID: 0}
 --- !u!135 &994721171
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -25456,7 +25458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1599671274}
   - component: {fileID: 1599671273}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: PostProcessingManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27164,6 +27166,7 @@ MonoBehaviour:
   camera: {fileID: 963194227}
   ratEscape: {fileID: 1514232742}
   mouse: {fileID: 994721165}
+  postp: {fileID: 0}
 --- !u!114 &1789668700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38228,17 +38231,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e2e059c5adf2c0f4191ab99da0a10295,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 49.52002
+      value: -181.27997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2e059c5adf2c0f4191ab99da0a10295,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.939997
+      value: -4.6600018
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2e059c5adf2c0f4191ab99da0a10295,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -11.5
+      value: -9.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e2e059c5adf2c0f4191ab99da0a10295,
         type: 3}

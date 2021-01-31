@@ -30,6 +30,8 @@ public class cageButton : MonoBehaviour
 
     public GameObject mouse;
 
+    public GameObject postp;
+
 
     void Start()
     {
@@ -45,8 +47,10 @@ public class cageButton : MonoBehaviour
             j++;
         }
 
-        oldCameraPos = camera.transform.position;
+        oldCameraPos = new Vector3(-33, 2, -51);
         newCameraPos = oldCameraPos + new Vector3(30f, 0, 0);
+
+        postp = GameObject.Find("PostProcessingManager");
     }
 
     void OnTriggerEnter(Collider collider)
@@ -100,7 +104,9 @@ public class cageButton : MonoBehaviour
     public IEnumerator Cutscene(VideoPlayer vp)
     {
         ratEscape.enabled = true;
+        postp.SetActive(false);
         yield return new WaitForSeconds(7.5f);
+        postp.SetActive(true);
         ratEscape.enabled = false;
 
 

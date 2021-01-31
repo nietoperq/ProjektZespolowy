@@ -8,11 +8,13 @@ public class TheEnd : MonoBehaviour
 {
 
     public VideoPlayer theEnd;
+    public GameObject postp;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        postp = GameObject.Find("PostProcessingManager");
     }
 
     // Update is called once per frame
@@ -39,8 +41,10 @@ public class TheEnd : MonoBehaviour
         FindObjectOfType<AudioManager>().mute();
         Fade.fadeOut();
         theEnd.enabled = true;
+        postp.SetActive(false);
         yield return new WaitForSeconds(35f);
         theEnd.enabled = false;
+        postp.SetActive(true);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
 
     }
