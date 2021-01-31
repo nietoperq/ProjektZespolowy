@@ -24,18 +24,25 @@ public class MouseAI : MonoBehaviour
 
     public GameObject cat;
 
+    private Vector3 rot;
+
+    private Transform mouseModel;
+    private Animator anim;
+
     void Start()
     {
         positions[0] = new Vector3(-54f, 0, 0);
         positions[1] = new Vector3(0, 0, 20f);
         positions[2] = new Vector3(-7f, 0, 0);
-        positions[3] = new Vector3(-86f, 0, 0);
-        positions[4] = new Vector3(0, 0, 20f);
+        positions[3] = new Vector3(-82f, 0, 0);
+        positions[4] = new Vector3(-3f, 0, 20f);
 
 
         // GetComponent<Rigidbody>().detectCollisions = false;
         GetComponent<Rigidbody>().isKinematic = true;
         bookRb = ksiazka.GetComponent<Rigidbody>();
+        mouseModel = transform.Find("mouse_idle");
+        anim = mouseModel.GetComponent<Animator>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -64,12 +71,13 @@ public class MouseAI : MonoBehaviour
                     t = 0f;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
-
+                    anim.SetBool("walking", false);
 
                     i = 1;
                     break;
@@ -80,14 +88,18 @@ public class MouseAI : MonoBehaviour
                     startPos = transform.position;
                     timeToDoIt = 0.5f;
                     //do dziury
+                    rot.y = 90;
+                    transform.eulerAngles = rot;
                     t = 0f;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
 
                     transform.position = new Vector3(-93f, 24f, 7f);//teleportacja
 
@@ -100,36 +112,46 @@ public class MouseAI : MonoBehaviour
                     t = 0;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         camera.transform.position = Vector3.Lerp(oldCameraPos, newCameraPos, (t / timeToDoIt) * 0.2f);
                     }
+                    anim.SetBool("walking", false);
 
                     timeToDoIt = 0.5f;
                     newPos = transform.position + new Vector3(0, 0, -10f);
                     startPos = transform.position;
                     //wyjscie z dziury
+                    rot.y = -90;
+                    transform.eulerAngles = rot;
                     t = 0f;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
 
                     switchRigid();
 
                     timeToDoIt = 3f;
                     newPos = transform.position += new Vector3(4f, 0, 0);
                     //pchniecie ksiazki
+                    rot.y = 180;
+                    transform.eulerAngles = rot;
                     t = 0f;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(transform.position, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
 
                     yield return new WaitForSeconds(2);
 
@@ -144,11 +166,13 @@ public class MouseAI : MonoBehaviour
                     t = 0f;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
 
 
                     camera.GetComponent<CameraController>().enabled = true;
@@ -159,13 +183,17 @@ public class MouseAI : MonoBehaviour
                     startPos = transform.position;
                     t = 0f;
                     //wyjscie z dziury 2
+                    rot.y = -90;
+                    transform.eulerAngles = rot;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
 
                     i = 2;
 
@@ -175,16 +203,20 @@ public class MouseAI : MonoBehaviour
                     cat.SetActive(true);
                     timeToDoIt = 0.5f;
                     //spaście z pólki
+                    rot.y = 0;
+                    transform.eulerAngles = rot;
                     newPos = transform.position + positions[i];
                     startPos = transform.position;
                     t = 0f;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
                     switchRigid();
 
                     i = 3;
@@ -200,11 +232,13 @@ public class MouseAI : MonoBehaviour
                     t = 0f;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
                     i = 4;
                     break;
 
@@ -214,14 +248,18 @@ public class MouseAI : MonoBehaviour
                     startPos = transform.position;
                     timeToDoIt = 1f;
                     //do dziury
+                    rot.y = 90;
+                    transform.eulerAngles = rot;
                     t = 0f;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
 
                     transform.position += new Vector3(-5f, 10f, 0);//teleportacja
 
@@ -229,13 +267,17 @@ public class MouseAI : MonoBehaviour
                     startPos = transform.position;
                     t = 0f;
                     //wyjscie z dziury 2
+                    rot.y = -90;
+                    transform.eulerAngles = rot;
                     while (t < timeToDoIt)
                     {
+                        anim.SetBool("walking", true);
                         t += Time.deltaTime;
                         transform.position = Vector3.Lerp(startPos, newPos, (t / timeToDoIt));
 
                         yield return null;
                     }
+                    anim.SetBool("walking", false);
 
                     yield return new WaitForSeconds(2f);
                     newPos = player.transform.position;

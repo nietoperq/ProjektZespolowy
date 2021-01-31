@@ -22,7 +22,7 @@ public class playerMovement : MonoBehaviour
 
     private float zMovementMultiplier = 1f;
 
-    Vector3 rot;
+    private Vector3 rot;
 
     private Animator anim;
 
@@ -62,7 +62,7 @@ public class playerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.W))
             {
-                rot.y = 90;
+                rot.y = -90;
                 transform.eulerAngles = rot;
             }
             if (Input.GetKey(KeyCode.A))
@@ -72,7 +72,7 @@ public class playerMovement : MonoBehaviour
             }
             if (Input.GetKey(KeyCode.S))
             {
-                rot.y = -90;
+                rot.y = 90;
                 transform.eulerAngles = rot;
             }
             if (Input.GetKey(KeyCode.D))

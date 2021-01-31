@@ -31,6 +31,7 @@ public class HealthManager : MonoBehaviour
         CH = FindObjectOfType<Checkpoint>();
         if(PlayerPrefs.GetString("isSaved")=="true")
         CH.ReloadScene();
+        currentHealth = 5;
     }
 
     // Update is called once per frame
