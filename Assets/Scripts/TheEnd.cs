@@ -9,7 +9,6 @@ public class TheEnd : MonoBehaviour
 
     public VideoPlayer theEnd;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +33,11 @@ public class TheEnd : MonoBehaviour
     public IEnumerator Cutscene()
     {
         playerMovement.isInputEnabled = false;
+        yield return new WaitForSeconds(2f);
+        Fade.fadeIn();
+        yield return new WaitForSeconds(2f);
+        FindObjectOfType<AudioManager>().mute();
+        Fade.fadeOut();
         theEnd.enabled = true;
         yield return new WaitForSeconds(35f);
         theEnd.enabled = false;

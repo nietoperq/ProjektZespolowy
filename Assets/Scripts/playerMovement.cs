@@ -15,7 +15,7 @@ public class playerMovement : MonoBehaviour
     public float knockbackForce;
     public float knockbackCounter;
 
-    public static bool isInputEnabled = true;
+    public static bool isInputEnabled;
     private bool isSphere = false;
 
     public bool isMouse;
@@ -32,6 +32,8 @@ public class playerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         if (isMouse)
             zMovementMultiplier = 2.5f;
+
+        isInputEnabled = true;
 
     }
 

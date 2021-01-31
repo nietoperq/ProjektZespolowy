@@ -6849,7 +6849,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233700478}
   m_Enabled: 0
-  m_VideoClip: {fileID: 32900000, guid: 3c78858eeb015354badb4a0a901b03b8, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 7ee758a0e3361fc41a6bf8a408cdc747, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 1115872872}
@@ -6868,7 +6868,7 @@ VideoPlayer:
   - 1
   m_Url: 
   m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 01
+  m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
@@ -7915,20 +7915,6 @@ CapsuleCollider:
   m_Height: 0.72077686
   m_Direction: 2
   m_Center: {x: 0.014786361, y: 0.07270091, z: -0.09177156}
---- !u!114 &396424615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396424608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec46f1ba766e34149b5d25f1153be066, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicBegins: {fileID: 8300000, guid: fac9c042c3f4674479a3f8c33e2d1e66, type: 3}
-  musicLooped: {fileID: 8300000, guid: d1b76b307c9389f4a9d102aa30b81474, type: 3}
 --- !u!114 &396424616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21594,7 +21580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115872868}
   m_LocalRotation: {x: 0.0993812, y: -0, z: -0, w: 0.9950495}
-  m_LocalPosition: {x: -258.4649, y: 57.809998, z: -49.299988}
+  m_LocalPosition: {x: 80, y: 9, z: 714}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -34700,17 +34686,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9a91af47606c7b643b1c16160040bee6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -257
+      value: 81.464905
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a91af47606c7b643b1c16160040bee6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 48
+      value: -0.80999756
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a91af47606c7b643b1c16160040bee6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16
+      value: 747.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9a91af47606c7b643b1c16160040bee6,
         type: 3}

@@ -6,10 +6,11 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip musicBegins;
     public AudioClip musicLooped;
+
     void Start()
     {
         GetComponent<AudioSource>().loop = true;
-        StartCoroutine(playMusic());
+            StartCoroutine(playMusic());
     }
 
     IEnumerator playMusic()
@@ -20,4 +21,10 @@ public class AudioManager : MonoBehaviour
         GetComponent<AudioSource>().clip = musicLooped;
         GetComponent<AudioSource>().Play();
     }
+
+    public void mute()
+    {
+        GetComponent<AudioSource>().volume = 0;
+    }
+
 }

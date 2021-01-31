@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class catShadow : MonoBehaviour
 {
+
+    public Light light;
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -50,7 +52,7 @@ public class catShadow : MonoBehaviour
 
     public void Blink()
     {
-        this.GetComponent<MeshRenderer>().enabled = !this.GetComponent<MeshRenderer>().enabled;
+        light.enabled = !light.enabled;
 
     }
 }
