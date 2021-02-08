@@ -8,11 +8,14 @@ public class BlobRoll : MonoBehaviour
     public GameObject sphere;
     private playerMovement PM;
 
+    float defaultSpeed;
+
 
     // Start is called before the first frame update
     void Start()
     {
        PM = FindObjectOfType<playerMovement>();
+        defaultSpeed = PM.speed;
     }
 
     // Update is called once per frame
@@ -68,7 +71,7 @@ public class BlobRoll : MonoBehaviour
         if (other.tag.Equals("rurka"))
         {
             PM.setIsSphere(false);
-            PM.speed -= 0.7f;
+            
             foreach (Collider c in sphere.GetComponents<Collider>())
             {
                 c.enabled = false;
@@ -81,6 +84,8 @@ public class BlobRoll : MonoBehaviour
             }
            
             GetComponent<Rigidbody>().freezeRotation = true;
+
+            PM.speed = defaultSpeed;
 
         }
     }

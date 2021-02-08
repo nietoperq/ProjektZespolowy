@@ -28,6 +28,7 @@ public class TheEnd : MonoBehaviour
         if (other.tag == "Player")
         {
             StartCoroutine("Cutscene");
+            PlayerPrefs.DeleteAll();
         }
 
     }

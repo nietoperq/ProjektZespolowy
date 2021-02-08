@@ -57,19 +57,21 @@ public class catSight : MonoBehaviour
         light.color = Color.cyan;
         playerMovement.isInputEnabled = false;
         Fade.fadeIn();
-        yield return new WaitForSeconds(2);
-        Fade.fadeOut();
-        postp.SetActive(false);
-        catDeath.enabled = true;
-        yield return new WaitForSeconds((float)catDeath.length/catDeath.playbackSpeed+1);
-        postp.SetActive(false);
+        yield return new WaitForSeconds(1);
         if (PlayerPrefs.GetString("isSaved") == "true")
             CH.ReloadScene();
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Fade.fadeOut();
+
+        catDeath.enabled = true;
+        yield return new WaitForSeconds(6);
+
+        
 
         playerMovement.isInputEnabled = true;
         light.color = defLightColor;
+        catDeath.enabled = false;
 
     }
 
